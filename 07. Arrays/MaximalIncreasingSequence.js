@@ -1,21 +1,21 @@
 function solve(args) {
-    var n = +args[0],
-        maxSeq = 1,
-        currSeq = 1;
+    let length = +args.shift(),
+        numbers = args.map(Number),
+        count = 1,
+        maxCount = 0;
 
-    for (i = 1; i < n; i += 1) {
-        if (args[i + 1] > args[i]) {
-            currSeq++;
-        } else {
-            if (currSeq > maxSeq) {
-                maxSeq = currSeq;
+    for (let i = 0; i < numbers.length - 1; i += 1) {
+        if (numbers[i] < numbers[i + 1]) {
+            count += 1;
+            if (count > maxCount) {
+                maxCount = count;
             }
-            // reset the current count
-            currSeq = 1;
+        } else {
+            count = 1;
         }
     }
 
-    console.log(maxSeq);
+    console.log(maxCount);
 }
 
 solve(['8', '7', '3', '2', '3', '4', '2', '2', '4']);
