@@ -1,23 +1,21 @@
 function solve(args) {
-    var s1 = args[0],
-        s2 = args[1];
+    var firstWord = args[0],
+        secondWord = args[1];
 
-    String.prototype.strcmp = function (s) {
-        if (this < s) return -1;
-        if (this > s) return 1;
-        return 0;
+    if (Array.isArray(firstWord)) {
+        firstWord = firstWord.join('');
     }
 
-    switch (s1.strcmp(s2)) {
-        case -1:
-            console.log('<');
-            break;
-        case 0:
-            console.log('=');
-            break;
-        case 1:
-            console.log('>');
-            break;
+    if (Array.isArray(secondWord)) {
+        secondWord = secondWord.join('');
+    }
+
+    if (firstWord > secondWord) {
+        console.log('>');
+    } else if (firstWord < secondWord) {
+        console.log('<');
+    } else {
+        console.log('=');
     }
 }
 
